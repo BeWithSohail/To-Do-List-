@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> swapping two variable using third variables / swapping two variable without using third variables  </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+        :root{
+        --cyan-bg:#57a4e3;
+        }
+
+        body{
+        background-color: var(--cyan-bg);
+        }
+
+        .container_box{
+        width: 600px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+        .form_element{
+
+        }
+        .form_elemnts {
+        display: flex;
+        }
+        .form_elemnts input{
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+
+        }
+        .form_elemnts button{
+        background: #57a4e3;
+        color: #fff;
+        padding: 14px 36px;
+        border: none;
+        }
+
+        .to_do_list ul{
+        list-style: none;
+        margin-top: 10px;
+        }
+
+        .to_do_list ul li{
+        background-color: #000;
+        color: #fff;
+        padding: 8px 10px;
+        position: relative;
+        padding-right: 40px;
+        text-align: justify;
+        margin-bottom: 10px;
+        }
+
+        .to_do_list ul li span{
+        position:absolute;
+        top: 8px;
+        right: 10px;
+        cursor: pointer;
+        }
+
+        .to_do_list ul li span i{
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container_box">
+        <div class="form_elemnts">
+            <input type="text" placeholder="Add to do items" id="input_field">
+            <button type="button" id="addtodo_btn"> ADD </button>
+        </div>
+
+        <div class="to_do_list"> 
+                <ul id="add_todo_item">
+                   
+                </ul>
+        </div>
+    </div>
+
+<script> 
+    let input_field = document.querySelector("#input_field");
+    let btn = document.querySelector("#addtodo_btn");
+    let listItem = document.querySelector("#add_todo_item");
+
+    input_field.addEventListener("keyup", function(e) {
+        //console.log(e.key);
+       if(e.key == "Enter"){
+         addToDo(this.value);
+         this.value = "";
+       }
+    });
+
+
+    let addToDo = (item)=>{
+        const lielements = document.createElement("li");
+        listItem.appendChild(lielements);
+        lielements.innerHTML = `
+        ${item} 
+        <span class="icon">
+                <i class="fa-solid fa-circle-xmark"></i>
+        </span>
+        `;
+      
+    }
+</script>
+
+</body>
+</html>
+
