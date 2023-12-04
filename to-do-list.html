@@ -74,6 +74,10 @@
         .to_do_list ul li span i{
 
         }
+
+        .toggleClass{
+            text-decoration:line-through;
+        }
     </style>
 </head>
 <body>
@@ -104,6 +108,11 @@
        }
     });
 
+    btn.addEventListener("click", function(e) {
+        addToDo(input_field.value);
+        input_field.value = "";
+    });
+
 
     let addToDo = (item)=>{
         const lielements = document.createElement("li");
@@ -114,7 +123,17 @@
                 <i class="fa-solid fa-circle-xmark"></i>
         </span>
         `;
-      
+
+        lielements.addEventListener('click', 
+            function(e) {
+                this.classList.toggle("toggleClass")
+            }
+        )
+        lielements.querySelector(".icon").addEventListener('click', function(e) {
+            lielements.remove()
+        })
+
+
     }
 </script>
 
